@@ -1,0 +1,24 @@
+<!-- score-counter.component.html -->
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      {{ title }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      {{ count }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="subtract()">-</ion-button>
+    </ion-col>
+    <ion-col>
+      {{ score }}
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="add()">+</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

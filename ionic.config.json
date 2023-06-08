@@ -1,0 +1,7 @@
+{
+  "name": "jiujitsu-scoreboard",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

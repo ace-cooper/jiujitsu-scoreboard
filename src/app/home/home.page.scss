@@ -25,3 +25,47 @@
 #container a {
   text-decoration: none;
 }
+ion-grid {
+  height: 100%;
+}
+
+#timerGrid {
+  display: flex;
+  flex-direction: column;
+}
+
+#timerGrid ion-row ion-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#timerGrid ion-row ion-col h1 {
+  font-size: 10vw;
+}
+
+app-timer {
+  width: 100%;
+}
+
+ion-input {
+  font-size: 4vw;
+  text-align: center;
+}
+
+#scoreboard .competitor, #timerGrid ion-row {
+  color: white;
+  background-color: var(--first-competitor-color);
+  flex: 1 0 auto;
+}
+
+#timerGrid ion-row:nth-child(2) {
+  background-color: #000;
+}
+
+#scoreboard .competitor:nth-child(2n), #timerGrid ion-row:nth-child(3) {
+  background-color: var(--second-competitor-color);
+}
+
+ion-grid, ion-row, ion-col {
+  padding: 0;
+}

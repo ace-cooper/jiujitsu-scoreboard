@@ -24,3 +24,15 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+.middleContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    --first-competitor-color: #2450a3;
+    --second-competitor-color: #8d2424;
+  }

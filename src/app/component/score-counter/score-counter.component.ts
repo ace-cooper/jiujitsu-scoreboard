@@ -11,9 +11,9 @@ export class ScoreCounterComponent {
   @Input() score: number = 0;
   // @Input()
   // resetEvent!: EventEmitter<boolean>;
-  @Output() scoreChange: EventEmitter<number> = new EventEmitter();
 
   @Input() count: number = 0;
+  @Output() countChange = new EventEmitter<number>();
 
   constructor() {
     // this.resetEvent.subscribe(_ => this.count = 0);
@@ -21,12 +21,12 @@ export class ScoreCounterComponent {
 
   add() {
     this.count += this.score;
-    this.scoreChange.emit(this.count);
+    this.countChange.emit(this.count);
   }
 
   subtract() {
     this.count = Math.max(this.count - this.score, 0);
-    this.scoreChange.emit(this.count);
+    this.countChange.emit(this.count);
   }
 
 }

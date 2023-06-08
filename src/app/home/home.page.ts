@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 
 interface Competitor {
   name: string;
@@ -10,6 +10,7 @@ interface Competitor {
     advantage: number;
     punishment: number;
   };
+  totalPoints?: number;
 }
 
 @Component({
@@ -18,6 +19,7 @@ interface Competitor {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
 
   competitors: Competitor[] = [
     {
@@ -30,6 +32,9 @@ export class HomePage {
         advantage: 0,
         punishment: 0,
       },
+      get totalPoints() {
+        return this.points.mountBackMount + this.points.guardPass + this.points.fallSweepKneeOnBelly + this.points.advantage - this.points.punishment;
+      }
     },
     {
       name: '',
@@ -41,14 +46,19 @@ export class HomePage {
         advantage: 0,
         punishment: 0,
       },
+      get totalPoints() {
+        return this.points.mountBackMount + this.points.guardPass + this.points.fallSweepKneeOnBelly + this.points.advantage - this.points.punishment;
+      }
     },
   ];
 
-  resetAllScores() {
+  public resetAllScores() {
     for (let competitor of this.competitors) {
-      for (let pointCategory in competitor.points) {
-        // competitor.points[pointCategory as any] = 0;
-      }
+      competitor.points.mountBackMount = 0;
+      competitor.points.guardPass = 0;
+      competitor.points.fallSweepKneeOnBelly = 0;
+      competitor.points.advantage = 0;
+      competitor.points.punishment = 0;
     }
   }
 

@@ -6,16 +6,16 @@
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col>
+    <ion-col class="counter">
       {{ count }}
     </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row  class="middleContent">
     <ion-col>
       <ion-button (click)="subtract()">-</ion-button>
     </ion-col>
     <ion-col>
-      {{ score }}
+      {{ score > 1 ? score : '' }}
     </ion-col>
     <ion-col>
       <ion-button (click)="add()">+</ion-button>

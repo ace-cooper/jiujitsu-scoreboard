@@ -2,37 +2,36 @@
 <ion-grid>
   <ion-row>
     <ion-col size="8">
-      <ion-grid>
-        <ion-row *ngFor="let competitor of competitors; let i = index">
+      <ion-grid id="scoreboard">
+        <ion-row class="competitor" *ngFor="let competitor of competitors; let i = index">
           <ion-col size="12">
             <!-- Competitor's name and team -->
             <ion-input [(ngModel)]="competitor.name" placeholder="Nome do competidor"></ion-input>
-            <ion-input [(ngModel)]="competitor.team" placeholder="Equipe"></ion-input>
           </ion-col>
 
           <ion-col size="3">
-            <app-score-counter [score]="4" [count]="competitor.points.mountBackMount" title="Montada / Pegada nas Costas"></app-score-counter>
+            <app-score-counter [score]="4" [(count)]="competitor.points.mountBackMount" title="Montada / Pegada nas Costas"></app-score-counter>
           </ion-col>
 
           <ion-col size="3">
-            <app-score-counter [score]="3" [count]="competitor.points.guardPass" title="Passagem de Guarda"></app-score-counter>
+            <app-score-counter [score]="3" [(count)]="competitor.points.guardPass" title="Passagem de Guarda"></app-score-counter>
           </ion-col>
 
           <ion-col size="3">
-            <app-score-counter [score]="2" [count]="competitor.points.fallSweepKneeOnBelly" title="Queda / Raspagem / Joelho na Barriga"></app-score-counter>
+            <app-score-counter [score]="2" [(count)]="competitor.points.fallSweepKneeOnBelly" title="Queda / Raspagem / Joelho na Barriga"></app-score-counter>
           </ion-col>
 
           <ion-col size="3">
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <app-score-counter [score]="1" [count]="competitor.points.advantage" title="Vantagem" color="green"></app-score-counter>
+                  <app-score-counter [score]="1" [(count)]="competitor.points.advantage" title="Vantagem" color="green"></app-score-counter>
                 </ion-col>
               </ion-row>
 
               <ion-row>
                 <ion-col>
-                  <app-score-counter [score]="1" [count]="competitor.points.punishment" title="Punição" color="red"></app-score-counter>
+                  <app-score-counter [score]="1" [(count)]="competitor.points.punishment" title="Punição" color="red"></app-score-counter>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -42,7 +41,21 @@
     </ion-col>
 
     <ion-col size="4">
-      <app-timer></app-timer>
+      <ion-grid id="timerGrid">
+        <ion-row>
+          <ion-col><h1>{{ competitors[0].totalPoints }}</h1></ion-col>
+     
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <app-timer (onReset)="resetAllScores()"></app-timer>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><h1>{{ competitors[1].totalPoints }}</h1></ion-col>
+      
+        </ion-row>
+      </ion-grid>
     </ion-col>
   </ion-row>
 </ion-grid>

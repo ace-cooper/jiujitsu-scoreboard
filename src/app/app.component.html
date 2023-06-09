@@ -1,3 +1,8 @@
 <ion-app>
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button color="dark" (click)="setFullscreen()" style="--border-radius: 15px;">
+      <ion-icon name="expand-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

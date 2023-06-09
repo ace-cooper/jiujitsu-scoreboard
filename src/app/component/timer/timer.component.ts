@@ -1,5 +1,6 @@
 // timer.component.ts
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+declare let window: any;
 
 const TIME_FACTOR_MINUTE_STEP = 60000;
 const TIME_FACTOR_SECOND_STEP = TIME_FACTOR_MINUTE_STEP / 12;
@@ -9,12 +10,14 @@ const TIME_FACTOR_SECOND_STEP = TIME_FACTOR_MINUTE_STEP / 12;
   styleUrls: ['./timer.component.scss'],
 })
 export class TimerComponent implements OnInit {
-  ngOnInit(): void {
-    this.updateTime();
-  }
+
   @Output() timeExpired = new EventEmitter<boolean>();
   @Output() onReset = new EventEmitter<void>();
+  @Input() fireAction: EventEmitter<void> = new EventEmitter<void>();
+  @Input() buzzerAction: EventEmitter<'buzzer' | 'beep'> = new EventEmitter<'buzzer' | 'beep'>();
 
+  public buzzer: any = new Audio('assets/buzzer-1.mp3');
+  public beep: any = new Audio('assets/beep.mp3');
   time: number = 0;
   timer: any = null;
 
@@ -41,15 +44,24 @@ export class TimerComponent implements OnInit {
     return this.time > TIME_FACTOR_SECOND_STEP ? 'white' : 'red'; 
   }
 
+  ngOnInit(): void {
+    this.updateTime();
+    this.fireAction.subscribe(() => this.action());
+    this.buzzerAction.subscribe((type: any) => this.playBuzzer(type));
+    this.buzzer.load();
+    this.beep.load();
+  }
+
   startCountdown(seconds: number) {
     this.time = seconds;
     this.paused = false;
     this.timer = setInterval(() => {
       this.time-= 500;
-      console.log(this.time)
+  
       if (this.time === 0) {
         clearInterval(this.timer);
         this.timeExpired.emit(true);
+        this.playBuzzer();
         this.pauseCountdown();
       }
     }, 500);
@@ -115,4 +127,37 @@ export class TimerComponent implements OnInit {
       this.startCountdown(this.timeInSeconds);
     }
   }
+
+  public playBuzzer(type: 'buzzer' | 'beep' = 'buzzer') {
+    
+    if (this.buzzer.paused && this.beep.paused) {
+      if (type === 'beep') {
+        this.beep.currentTime = 0;
+        this.beep.play();
+      } else {
+        this.buzzer.currentTime = 0;
+        this.buzzer.play();
+      }
+    }
+
+    // const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    // const oscillator = audioContext.createOscillator();
+    // const gainNode = audioContext.createGain();
+  
+    // oscillator.connect(gainNode);
+    // gainNode.connect(audioContext.destination);
+  
+    // gainNode.gain.setValueAtTime(1, audioContext.currentTime); // Volume
+    // gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1.5);
+    // oscillator.frequency.setValueAtTime(2000, audioContext.currentTime); // Frequência inicial do beep em Hz
+    // oscillator.frequency.exponentialRampToValueAtTime(150, audioContext.currentTime + 1.5); // Frequência final do beep em Hz
+    // oscillator.type = 'sawtooth'; // Tipo de onda
+  
+    // oscillator.start();
+  
+    // setTimeout(() => {
+    //   oscillator.stop();
+    // }, 1500); // Duração do beep em milissegundos
+  }
+  
 }

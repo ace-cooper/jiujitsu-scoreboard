@@ -1,0 +1,11 @@
+appId: com.jiujitsu.scoreboard
+productName: Placar
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - "electron.js"
+  - "package.json"
+  - "www/**/*"
+win:
+  target: portable

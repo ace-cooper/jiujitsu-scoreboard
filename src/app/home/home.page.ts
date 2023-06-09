@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener } from '@angular/core';
 
 interface Competitor {
   name: string;
@@ -20,10 +20,12 @@ interface Competitor {
 })
 export class HomePage {
 
-
+  public onActionEmitter = new EventEmitter<void>();
+  public onBuzzerEmitter = new EventEmitter<'buzzer' | 'beep'>();
+  
   competitors: Competitor[] = [
     {
-      name: '',
+      name: 'Atleta 1',
       team: '',
       points: {
         mountBackMount: 0,
@@ -37,7 +39,7 @@ export class HomePage {
       }
     },
     {
-      name: '',
+      name: 'Atleta 2',
       team: '',
       points: {
         mountBackMount: 0,
@@ -59,6 +61,18 @@ export class HomePage {
       competitor.points.fallSweepKneeOnBelly = 0;
       competitor.points.advantage = 0;
       competitor.points.punishment = 0;
+    }
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) { 
+    switch (event.key) {
+      case ' ':
+       this.onActionEmitter.emit();
+       break;
+      case 'b':
+        this.onBuzzerEmitter.emit('beep');
+      break;
     }
   }
 

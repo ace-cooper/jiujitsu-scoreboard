@@ -15,6 +15,10 @@ export class ScoreCounterComponent {
   @Input() count: number = 0;
   @Output() countChange = new EventEmitter<number>();
 
+  @Input() bgColor: string = 'none';
+  @Input() color: string = 'white';
+
+
   constructor() {
     // this.resetEvent.subscribe(_ => this.count = 0);
   }

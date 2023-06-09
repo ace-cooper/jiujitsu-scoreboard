@@ -1,8 +1,8 @@
 {
   "name": "jiujitsu-scoreboard",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "1.0.0",
+  "author": "Rio Corfebol",
+  "homepage": "",
   "main": "electron.js",
   "scripts": {
     "ng": "ng",

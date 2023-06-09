@@ -26,6 +26,21 @@ export class TimerComponent implements OnInit {
   public minutes: number = 10;
   public seconds: number = 0;
 
+  public get formatedMinutes() {
+    return this.minutes.toString().padStart(2, '0');
+  }
+  public get formatedSeconds() {
+    return this.seconds.toString().padStart(2, '0');
+  }
+
+  public set formatedMinutes(value: string | number) {
+    this.minutes = Math.min(+value, 99);
+  }
+
+  public set formatedSeconds(value: string | number) {
+    this.seconds = Math.min(+value, 59);
+  }
+
   public isOpen: boolean = false;
 
   public get formatedTime() {

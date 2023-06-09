@@ -52,6 +52,11 @@ ion-input {
   text-align: center;
 }
 
+#scoreboard {
+  display: flex;
+  flex-direction: column;
+}
+
 #scoreboard .competitor, #timerGrid ion-row {
   color: white;
   background-color: var(--first-competitor-color);
@@ -64,6 +69,7 @@ ion-input {
 
 #scoreboard .competitor:nth-child(2n), #timerGrid ion-row:nth-child(3) {
   background-color: var(--second-competitor-color);
+  color: #000;
 }
 
 ion-grid, ion-row, ion-col {

@@ -14,7 +14,7 @@ function createWindow () {
   win.loadFile('www/index.html');
   win.maximize();
   win.setMenuBarVisibility(false)
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   ipcMain.on('fullscreen-window', () => {
       win.setFullScreen(!win.isFullScreen())

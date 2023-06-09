@@ -1,6 +1,6 @@
 <!-- app.component.html -->
 <ion-grid>
-  <ion-row>
+  <ion-row style="height: 100%; padding: 10px">
     <ion-col size="8">
       <ion-grid id="scoreboard">
         <ion-row class="competitor" *ngFor="let competitor of competitors; let i = index">
@@ -10,28 +10,28 @@
           </ion-col>
 
           <ion-col size="3">
-            <app-score-counter [score]="4" [(count)]="competitor.points.mountBackMount" title="Montada / Pegada nas Costas"></app-score-counter>
+            <app-score-counter [score]="4" [(count)]="competitor.points.mountBackMount" title="Montada / Pegada nas Costas" color="{{ i == 1 ? '#000' : '#fff' }}"></app-score-counter>
           </ion-col>
 
           <ion-col size="3">
-            <app-score-counter [score]="3" [(count)]="competitor.points.guardPass" title="Passagem de Guarda"></app-score-counter>
+            <app-score-counter [score]="3" [(count)]="competitor.points.guardPass" title="Passagem de Guarda" color="{{ i == 1 ? '#000' : '#fff' }}"></app-score-counter>
           </ion-col>
 
           <ion-col size="3">
-            <app-score-counter [score]="2" [(count)]="competitor.points.fallSweepKneeOnBelly" title="Queda / Raspagem / Joelho na Barriga"></app-score-counter>
+            <app-score-counter [score]="2" [(count)]="competitor.points.fallSweepKneeOnBelly" title="Queda / Raspagem / Joelho na Barriga" color="{{ i == 1 ? '#000' : '#fff' }}"></app-score-counter>
           </ion-col>
 
           <ion-col size="3">
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <app-score-counter [score]="1" [(count)]="competitor.points.advantage" title="Vantagem" color="green"></app-score-counter>
+                  <app-score-counter [score]="1" [(count)]="competitor.points.advantage" title="Vantagem" bgColor="green" color="#000"></app-score-counter>
                 </ion-col>
               </ion-row>
 
               <ion-row>
                 <ion-col>
-                  <app-score-counter [score]="1" [(count)]="competitor.points.punishment" title="Punição" color="red"></app-score-counter>
+                  <app-score-counter [score]="1" [(count)]="competitor.points.punishment" title="Punição" bgColor="#8d2424" color="#000"></app-score-counter>
                 </ion-col>
               </ion-row>
             </ion-grid>

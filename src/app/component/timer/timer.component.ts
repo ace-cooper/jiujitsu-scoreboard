@@ -33,7 +33,7 @@ export class TimerComponent implements OnInit {
   }
 
   private get timeInSeconds() {
-    return this.minutes * TIME_FACTOR_MINUTE_STEP + this.seconds;
+    return this.minutes * TIME_FACTOR_MINUTE_STEP + this.seconds * (TIME_FACTOR_MINUTE_STEP / 60);
   }
 
   public get isRunning() {

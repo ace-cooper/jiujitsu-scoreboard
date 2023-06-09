@@ -30,10 +30,10 @@
   <ng-template>  
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start">
+        <!-- <ion-buttons slot="start">
           <ion-button (click)="close()"><ion-icon name="close-outline"></ion-icon></ion-button>
-        </ion-buttons>
-        <ion-title style="text-align: center;">Tempo</ion-title>
+        </ion-buttons> -->
+        <ion-title style="text-align: center;">Contagem</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -42,27 +42,28 @@
       <ion-item>
         <!-- <ion-icon icon="time" slot="start"></ion-icon> -->
         <ion-input 
+        style="text-align: right; font-size: 3vw"
         [(ngModel)]="minutes"
-        slot="start"
         type="number" 
         min="0" 
         max="59" 
-        step="10">
+        step="1">
       </ion-input>
-        <ion-label>:</ion-label>
+        <ion-label style=" font-size: 3vw">:</ion-label>
         <ion-input 
+        style="text-align: left; font-size: 3vw"
         [(ngModel)]="seconds"
-          slot="end"
+          
           type="number" 
           min="0" 
           max="59" 
-          step="10">
+          step="5">
         </ion-input>
       </ion-item>  
   
     </ion-content>
     <ion-footer collapse="fade">
-      <ion-button expand="full">Save</ion-button>
+      <ion-button (click)="close()" expand="full">Ok</ion-button>
     </ion-footer>
 
 </ng-template>

@@ -45,3 +45,7 @@ or
 ```bash
 npm run electron:windows
 ```
+
+
+
+![Cover](./docs/cover.jpeg "Cover image")

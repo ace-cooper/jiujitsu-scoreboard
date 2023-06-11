@@ -1,6 +1,8 @@
 # Jiu-jitsu Scoreboard
 
-It's a scoreboard for jiu-jitsu matches. It's a simple project made with Ionic, Angular and Electron.
+It's a scoreboard for jiu-jitsu matches. It's a pretty simple project made with Ionic, Angular and Electron.
+
+Ps: It's in portuguese and doesn't have localization support yet.
 
 ## How to use
 

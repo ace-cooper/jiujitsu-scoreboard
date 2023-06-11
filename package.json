@@ -12,7 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "electron:windows": "electron-builder --windows",
-    "electron:linux": "electron-builder --windows",
+    "electron:build": "electron-builder",
     "electron:start": "NODE_ENV=dev electron ."
   },
   "private": true,

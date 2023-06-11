@@ -26,6 +26,9 @@ export class TimerComponent implements OnInit {
   public minutes: number = 10;
   public seconds: number = 0;
 
+  public dangerMinutes: number = 0;
+  public dangerSeconds: number = 30;
+
   public get formatedMinutes() {
     return this.minutes.toString().padStart(2, '0');
   }
@@ -39,6 +42,22 @@ export class TimerComponent implements OnInit {
 
   public set formatedSeconds(value: string | number) {
     this.seconds = Math.min(+value, 59);
+  }
+
+
+  public get formatedDangerMinutes() {
+    return this.dangerMinutes.toString().padStart(2, '0');
+  }
+  public get formatedDangerSeconds() {
+    return this.dangerSeconds.toString().padStart(2, '0');
+  }
+
+  public set formatedDangerMinutes(value: string | number) {
+    this.dangerMinutes = Math.min(+value, 99);
+  }
+
+  public set formatedDangerSeconds(value: string | number) {
+    this.dangerSeconds = Math.min(+value, 59);
   }
 
   public isOpen: boolean = false;
@@ -56,7 +75,7 @@ export class TimerComponent implements OnInit {
   }
 
   public get displayColor() {
-    return this.time > TIME_FACTOR_SECOND_STEP ? 'white' : 'red'; 
+    return this.time > (this.dangerMinutes * TIME_FACTOR_MINUTE_STEP + this.dangerSeconds * (TIME_FACTOR_MINUTE_STEP / 60)) ? 'white' : 'red'; 
   }
 
   ngOnInit(): void {

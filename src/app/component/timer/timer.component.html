@@ -39,6 +39,7 @@
 
     <ion-content class="ion-padding">  
       
+      <ion-item><ion-label>Limite do cronômetro:</ion-label></ion-item>
       <ion-item>
         <!-- <ion-icon icon="time" slot="start"></ion-icon> -->
         <ion-input 
@@ -60,7 +61,28 @@
           step="5">
         </ion-input>
       </ion-item>  
-  
+        <ion-item><ion-label>Alerta:</ion-label></ion-item>
+      <ion-item>
+        <!-- <ion-icon icon="time" slot="start"></ion-icon> -->
+        <ion-input 
+        style="text-align: right; font-size: 3vw"
+        [(ngModel)]="formatedDangerMinutes"
+        type="number" 
+        min="0" 
+        max="59" 
+        step="1">
+      </ion-input>
+        <ion-label style=" font-size: 3vw">:</ion-label>
+        <ion-input 
+        style="text-align: left; font-size: 3vw"
+        [(ngModel)]="formatedDangerSeconds"
+          
+          type="number" 
+          min="0" 
+          max="59" 
+          step="5">
+        </ion-input>
+      </ion-item> 
     </ion-content>
     <ion-footer collapse="fade">
       <ion-button (click)="close()" expand="full">Ok</ion-button>

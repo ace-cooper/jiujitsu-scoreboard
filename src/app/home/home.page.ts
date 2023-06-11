@@ -35,7 +35,7 @@ export class HomePage {
         punishment: 0,
       },
       get totalPoints() {
-        return this.points.mountBackMount + this.points.guardPass + this.points.fallSweepKneeOnBelly + this.points.advantage - this.points.punishment;
+        return this.points.mountBackMount + this.points.guardPass + this.points.fallSweepKneeOnBelly;
       }
     },
     {
@@ -49,7 +49,7 @@ export class HomePage {
         punishment: 0,
       },
       get totalPoints() {
-        return this.points.mountBackMount + this.points.guardPass + this.points.fallSweepKneeOnBelly + this.points.advantage - this.points.punishment;
+        return this.points.mountBackMount + this.points.guardPass + this.points.fallSweepKneeOnBelly;
       }
     },
   ];

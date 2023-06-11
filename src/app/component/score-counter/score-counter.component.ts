@@ -18,6 +18,8 @@ export class ScoreCounterComponent {
   @Input() bgColor: string = 'none';
   @Input() color: string = 'white';
 
+  @Input() smallScore: boolean = false;
+
 
   constructor() {
     // this.resetEvent.subscribe(_ => this.count = 0);

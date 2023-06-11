@@ -1,6 +1,6 @@
 <!-- app.component.html -->
 <ion-grid>
-  <ion-row style="height: 100%; padding: 10px">
+  <ion-row style="height: 100%; padding: 10px 10px 20px 10px">
     <ion-col size="8">
       <ion-grid id="scoreboard">
         <ion-row class="competitor" *ngFor="let competitor of competitors; let i = index">
@@ -25,13 +25,13 @@
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <app-score-counter [score]="1" [(count)]="competitor.points.advantage" title="Vantagem" bgColor="green" color="#000"></app-score-counter>
+                  <app-score-counter [smallScore]="true" [score]="1" [(count)]="competitor.points.advantage" title="Vantagem" bgColor="#2dd36f" color="#000"></app-score-counter>
                 </ion-col>
               </ion-row>
 
               <ion-row>
                 <ion-col>
-                  <app-score-counter [score]="1" [(count)]="competitor.points.punishment" title="Punição" bgColor="#8d2424" color="#000"></app-score-counter>
+                  <app-score-counter [smallScore]="true" [score]="1" [(count)]="competitor.points.punishment" title="Punição" bgColor="#eb445a" color="#000"></app-score-counter>
                 </ion-col>
               </ion-row>
             </ion-grid>
